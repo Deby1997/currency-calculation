@@ -5,8 +5,18 @@ function sum() {
     var rent = document.getElementById('rent').value;
     var clothes = document.getElementById('clothes').value;
     var total = parseInt(food) + parseInt(rent) + parseInt(clothes);
-    document.getElementById('total-expenses').innerText = parseInt(total);
-    document.getElementById('balance').innerText = parseInt(income) - parseInt(total);
+
+
+    var fail = document.getElementById('notify-fail');
+    if (income > total) {
+        document.getElementById('total-expenses').innerText = parseInt(total);
+        document.getElementById('balance').innerText = parseInt(income) - parseInt(total);
+
+    }
+    else {
+        fail.style.display = 'block';
+    }
+
 
 }
 
