@@ -12,6 +12,7 @@ function sum() {
 
     if (income < 0 || food < 0 || rent < 0 || clothes < 0) {
         failSecond.style.display = 'block';
+        fail.style.display = 'none';
     }
     else if (income > total) {
         document.getElementById('total-expenses').innerText = parseInt(total);
@@ -37,12 +38,25 @@ document.getElementById('calculate-button').addEventListener('click', function (
 function save() {
     var income = document.getElementById('income').value;
     var saveInput = document.getElementById('save-input').value;
+    var balance = document.getElementById('balance').innerText;
+    // var save = document.getElementById('saving-amount').innerText;
+
     var percent = parseFloat(saveInput) / 100;
     var saveAmount = parseFloat(income) * parseFloat(percent);
     document.getElementById('saving-amount').innerText = parseFloat(saveAmount);
-    var balance = document.getElementById('balance').innerText;
-    var save = document.getElementById('saving-amount').innerText;
-    document.getElementById('remaining-balance').innerText = parseFloat(balance) - parseFloat(save);
+    // notify
+    var failThree = document.getElementById('notify-fail-three');
+    if (saveAmount < balance) {
+
+        document.getElementById('remaining-balance').innerText = parseFloat(balance) - parseFloat(saveAmount);
+        failThree.style.display = 'none';
+
+    }
+    else {
+        failThree.style.display = 'block';
+
+    }
+
     // empty input values
     document.getElementById('income').value = '';
     document.getElementById('save-input').value = '';

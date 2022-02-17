@@ -1,10 +1,13 @@
+/* image sizing */
 .image-size{
     height: 60px;
     width: 60px;
 }
+/* background color of form */
 .form-color{
     background-color: rgb(231, 225, 225);
 }
+/* style for notification alarm */
 .notify {
     color: #fff;
     text-align: center;
